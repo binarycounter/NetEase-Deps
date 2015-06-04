@@ -1,4 +1,4 @@
-echo Decrypting secrets (Signing key, g-drive token)
+echo Decrypting secrets
 openssl aes-256-cbc -K $encrypted_d7f5e54ff428_key -iv $encrypted_d7f5e54ff428_iv -in secrets.tar.gz.enc -out secrets.tar.gz -d
 tar xvf secrets.tar.gz
 echo Building APK:
