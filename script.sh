@@ -5,7 +5,7 @@ echo Building APK:
 echo Executing java -jar apktool.jar b ../NetEase-Translation -o NetEase.apk
 java -jar apktool.jar b ../NetEase-Translation -o NetEase.apk
 echo ------------------------------------
-if [ "$TRAVIS_BRANCH" != "301" ]
+if [ "$TRAVIS_BRANCH" = "301" ]
   then echo 301 BRANCH UNSUPPORTED
 fi
 echo Signing APK:
