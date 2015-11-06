@@ -8,7 +8,7 @@ echo ------------------------------------
 if [ "$TRAVIS_BRANCH" = "301" ]
   then 
   cd ../NetEase-Translation/original
-  zip -q -9 -r ../../Netease-Deps/Netease.apk META-INF/*
+  zip -q -9 -r ../../NetEase-Deps/Netease.apk META-INF/*
   cd ../../NetEase-Deps
 fi
 echo Signing APK:
