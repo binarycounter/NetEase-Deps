@@ -9,6 +9,6 @@ echo Signing APK:
 echo Executing java -jar signapk.jar certificate.pem key.pk8 NetEase.apk NetEase_signed.apk
 java -jar signapk.jar secrets/certificate.pem secrets/key.pk8 NetEase.apk NetEase_signed.apk
 echo Uploading APK to GDrive:
- ./gdrive -c secrets/.gdrive/ upload -f NetEase_signed.apk -t NetEase_${TRAVIS_BUILD_NUMBER}_signed.apk -p 0B2zELYFwobkXfm1hYVh1NUZOcHlFQ3R5SWdEd0ZzZGlsamk1VWhWc0FrUGk2QnVySlVNdDg
+ ./gdrive -c secrets/.gdrive/ upload -f NetEase_signed.apk -t NetEase_${TRAVIS_BUILD_NUMBER}_${TRAVIS_BRANCH}_signed.apk -p 0B2zELYFwobkXfm1hYVh1NUZOcHlFQ3R5SWdEd0ZzZGlsamk1VWhWc0FrUGk2QnVySlVNdDg
 
 
