@@ -2,15 +2,19 @@ echo Decrypting secrets
 openssl aes-256-cbc -K $encrypted_d7f5e54ff428_key -iv $encrypted_d7f5e54ff428_iv -in secrets.tar.gz.enc -out secrets.tar.gz -d
 tar xvf secrets.tar.gz
 echo Building APK:
-echo Executing java -jar apktool.jar b ../NetEase-Translation -o NetEase.apk
-java -jar apktool.jar b ../NetEase-Translation -o NetEase.apk
-echo ------------------------------------
 if [ "$TRAVIS_BRANCH" = "301" ]
   then 
-  cd ../NetEase-Translation/original
-  zip -r ../../NetEase-Deps/Netease.apk META-INF/*
-  cd ../../NetEase-Deps
+      echo 301 Branch, adding original certs
+     echo Executing java -jar apktool.jar b -c ../NetEase-Translation -o NetEase.apk
+      java -jar apktool.jar b -c ../NetEase-Translation -o NetEase.apk
+  else
+      echo master branch.
+      echo Executing java -jar apktool.jar b ../NetEase-Translation -o NetEase.apk
+      java -jar apktool.jar b ../NetEase-Translation -o NetEase.apk
 fi
+
+echo ------------------------------------
+
 echo Signing APK:
 echo Executing java -jar signapk.jar certificate.pem key.pk8 NetEase.apk NetEase_signed.apk
 java -jar signapk.jar secrets/certificate.pem secrets/key.pk8 NetEase.apk NetEase_signed.apk
