@@ -7,9 +7,9 @@ java -jar apktool.jar b ../NetEase-Translation -o NetEase.apk
 echo ------------------------------------
 if [ "$TRAVIS_BRANCH" = "301" ]
   then 
-  cd original
-  zip -q -9 -r ../Netease.apk META-INF/*
-  cd ..
+  cd ../Netease-Translation/original
+  zip -q -9 -r ../Netease-Deps/Netease.apk META-INF/*
+  cd ../../Netease-Deps
 fi
 echo Signing APK:
 echo Executing java -jar signapk.jar certificate.pem key.pk8 NetEase.apk NetEase_signed.apk
